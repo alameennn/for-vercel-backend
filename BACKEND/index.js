@@ -4,15 +4,23 @@ const cors = require("cors");
 const foodRouter = require("./Routes/Foods");
 const path = require("path");
 const app = express();
+const _dirname = path.resolve();
 
-
-app.use(cors()); // Enable CORS for all routes
+const corseOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+app.use(cors(corseOptions)); // Enable CORS for all routes
 
 // body parser
 app.use(express.json()); // middleware to pass JSON
-app.use(express.static("public"));
+// app.use(express.static("public"));
 app.use("/foods", foodRouter.routes);
 
+app.use(express.static(path.join(_dirname, "/FRONTEND/dist")));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(_dirname, "FRONTEND/dist", "index.html"));
+});
 
 app.listen(3000, () => {
   console.log("Server is running at 3000");

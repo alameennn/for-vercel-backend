@@ -6,7 +6,7 @@ const FoodItems = () => {
   const [food, setFood] = useState([]);
 
   useEffect(() => {
-    fetch("/foods")
+    fetch("http://localhost:3000/foods")
       .then((response) => response.json())
       .then((data) => setFood(data))
       .catch((error) => console.error("Error Fetching Food:", error));
@@ -14,7 +14,7 @@ const FoodItems = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`/foods/${id}`, {
+      await fetch(`${"http://localhost:3000/foods"}/${id}`, {
         method: "DELETE",
       }).then((response) => {
         if (response.ok) {
