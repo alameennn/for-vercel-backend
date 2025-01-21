@@ -41,7 +41,7 @@ const AddFood = () => {
 
     // send POST request to server
 
-    fetch("https://lasttry-soph.onrender.com/foods", {
+    fetch("http://localhost:3000/foods", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ const app = express();
 const _dirname = path.resolve();
 
 const corseOptions = {
-  origin: "https://lasttry-soph.onrender.com",
+  origin: "http://localhost:5173",
   credentials: true,
 };
 app.use(cors(corseOptions)); // Enable CORS for all routes
