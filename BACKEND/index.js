@@ -7,7 +7,7 @@ const app = express();
 const _dirname = path.resolve();
 
 const corseOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://for-vercel-backend.onrender.com",
   credentials: true,
 };
 app.use(cors(corseOptions)); // Enable CORS for all routes
