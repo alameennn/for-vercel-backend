@@ -5,7 +5,12 @@ const mongoose = require("mongoose");
 const foodRouter = require("./Routes/Foods");
 const path = require("path");
 
+
+
 const app = express();
+
+const _dirname = path.resolve()
+
 app.use(cors()); // Enable CORS for all routes
 
 // body parser
@@ -16,6 +21,10 @@ app.use("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "dist", "index.html"));
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("Server is running at", process.env.PORT);
+// i have removed process.env.PORT
+
+app.use(express.static(path.join(_dirname,"FRONTEND/dist")))
+
+app.listen(3000, () => {
+  console.log("Server is running at 3000");
 });
